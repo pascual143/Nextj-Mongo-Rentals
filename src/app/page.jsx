@@ -1,4 +1,4 @@
-import TopicsList from "./components/topicsList";
+import TopicsList from "../components/topicsList";
 
 export default function Home() {
   return (
