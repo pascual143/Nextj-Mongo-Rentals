@@ -53,7 +53,7 @@ nav{
   position: absolute;
   left:0;
   top:0;
-  width: 150px;
+  width: 250px;
   top:50px;
   height:calc(100vh - 50px);
   background:#68cdf5;
@@ -136,4 +136,8 @@ nav{
 
 .navbar-user-mobile {
   border-radius: 10%;
+}
+
+.container {
+  max-width: 100% !important;
 }

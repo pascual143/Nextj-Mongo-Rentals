@@ -1,9 +1,9 @@
-import TopicsList from "../components/topicsList";
+import HousesList from "../components/housesList";
 
 export default function Home() {
   return (
     <>
-      <TopicsList />
+      <HousesList />
     </>
   );
 }
