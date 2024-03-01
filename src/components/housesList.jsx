@@ -7,6 +7,9 @@ import { HiPencilAlt } from "react-icons/hi";
 export default function HousesList() {
     const [houses, setHouses] = useState([]);
     const [searchText, setSearchText] = useState("");
+    const [minPrice, setMinPrice] = useState(0);
+    const [maxPrice, setMaxPrice] = useState(Number.MAX_SAFE_INTEGER);
+
 
     useEffect(() => {
         const getHouses = async () => {
@@ -30,7 +33,9 @@ export default function HousesList() {
     }, []);
 
     const filteredHouses = houses.filter((house) =>
-        house.title.toLowerCase().includes(searchText.toLowerCase())
+        house.title.toLowerCase().includes(searchText.toLowerCase()) &&
+        house.precio >= minPrice &&
+        house.precio <= maxPrice
     );
 
     return (
@@ -48,11 +53,18 @@ export default function HousesList() {
                                 className="border border-gray-200 rounded-md p-2 m-3"
                             />
                             <input
-                                type="text"
-                                value={searchText}
-                                onChange={(e) => setSearchText(e.target.value)}
-                                placeholder="Precio"
-                                className="border border-gray-200 rounded-md p-2 m-3"
+                                type="number"
+                                value={minPrice}
+                                onChange={(e) => setMinPrice(parseInt(e.target.value))}
+                                placeholder="Min Price"
+                                className="border border-gray-200 rounded-md p-2 w-full mt-2"
+                            />
+                            <input
+                                type="number"
+                                value={maxPrice}
+                                onChange={(e) => setMaxPrice(parseInt(e.target.value))}
+                                placeholder="Max Price"
+                                className="border border-gray-200 rounded-md p-2 w-full mt-2"
                             />
                         </div>
                     </div>
